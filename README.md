@@ -1,7 +1,14 @@
-# This is a simple crud api written in python
+# Terminal ToDo App
 
-Following are the features of this project:
+### What is the project about?
 
-1. Codebase in python
-2. Dependency management using poetry
-3. Database in mysql
+This project is a simple checklist app written in python. Following are the dependencies of the project:
+
+1. Database: mysql
+2. GUI component: tkinter
+3. Project management: poetry
+4. Testing: pytest
+
+### CICD pipelines of the project
+
+*under development*
