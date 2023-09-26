@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+  shubh-build:
+    docker:
+      - image: python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: |
+            pip install -r requirements.txt
+            pytest
+
+workflows:
+  build_and_test:
+    jobs:
+      - shubh-build
