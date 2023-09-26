@@ -7,10 +7,14 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Poetry
+          command: pip install poetry
+      - run:
           name: Install Dependencies
-          command: |
-            pip install -r requirements.txt
-            pytest
+          command: poetry install
+      - run:
+          name: Run Tests
+          command: poetry run pytest
 
 workflows:
   build_and_test:
