@@ -11,13 +11,7 @@ jobs:
           command: pip install poetry
       - run:
           name: Install Dependencies
-          command: poetry install -vvv || echo "Poetry install failed"
-      - run:
-          name: List installed packages
-          command: poetry show || echo "Couldn't list packages"
-      - run:
-          name: Run Tests
-          command: poetry run pytest || echo "Tests failed"
+          command: poetry install -vvv
 
 workflows:
   build_and_test:
