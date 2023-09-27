@@ -9,4 +9,7 @@ echo "$COMMIT_MSG" | grep -Pq "^\(commit\s+[0-9]+\)\s+.*$"
 if [ $? -ne 0 ]; then
   echo "Error: Commit message does not follow the correct format."
   exit 1
+  else
+  echo "Commit message is CORRECT"
+  exit 0
 fi
