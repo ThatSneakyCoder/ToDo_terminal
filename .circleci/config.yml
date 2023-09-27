@@ -3,15 +3,12 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: python:3.10
+      - image: 'python:3.10'
     steps:
       - checkout
       - run:
-          name: Install Poetry
-          command: pip install poetry
-      - run:
-          name: Install Dependencies
-          command: poetry install -vvv
+          name: Check commit message
+          command: ./scripts/check_commit.sh
 
 workflows:
   build_and_test:
