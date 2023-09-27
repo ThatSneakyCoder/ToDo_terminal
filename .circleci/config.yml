@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  shubh-build:
+  build:
     docker:
       - image: python:3.10
     steps:
@@ -25,4 +25,4 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - shubh-build
+      - build

@@ -9,8 +9,6 @@ keywords = ["CRUD", "Python", "Database"]
 [tool.poetry.dependencies]
 python = "^3.10"
 mysql-connector-python = "^8.0"
-
-[tool.poetry.dev-dependencies]
 pytest = "^7.4.0"
 
 [build-system]
