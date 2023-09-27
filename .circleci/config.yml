@@ -17,7 +17,7 @@ jobs:
           command: pip install --upgrade poetry
       - run:
           name: Install Dependencies
-          command: poetry install
+          command: poetry install -vvv
       - run:
           name: Run Tests
           command: poetry run pytest
