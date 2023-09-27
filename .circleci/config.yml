@@ -11,7 +11,7 @@ jobs:
           command: pip install poetry
       - run:
           name: Clear poetry cache
-          command: poetry cache clear --all
+          command: poetry cache clear pypi --all
       - run:
           name: Updating poetry
           command: pip install --upgrade poetry
