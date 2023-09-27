@@ -16,6 +16,3 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Poetry related
-poetry.lock
-
