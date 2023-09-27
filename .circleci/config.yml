@@ -10,6 +10,12 @@ jobs:
           name: Install Poetry
           command: pip install poetry
       - run:
+          name: Clear poetry cache
+          command: poetry cache clear --all
+      - run:
+          name: Updating poetry
+          command: pip install --upgrade poetry
+      - run:
           name: Install Dependencies
           command: poetry install
       - run:
