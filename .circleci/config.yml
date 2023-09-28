@@ -10,6 +10,9 @@ jobs:
           name: Check commit message
           command: ./scripts/check_commit.sh
       - run:
+          name: Download pylint
+          command: pip install pylint
+      - run:
           name: Run pylint
           command: find . -name \*.py -exec pylint {} +
 
