@@ -9,6 +9,9 @@ jobs:
       - run:
           name: Check commit message
           command: ./scripts/check_commit.sh
+      - run:
+          name: Run pylint
+          command: find . -name \*.py -exec pylint {} +
 
 workflows:
   build_and_test:

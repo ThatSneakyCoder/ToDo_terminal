@@ -1,6 +1,9 @@
+"""
+Module sets up connection with the database
+"""
 import mysql.connector
 
-connection = None
+CONNECTION = None
 config = {
         'user': 'root',
         'password': 'root',
@@ -11,9 +14,14 @@ config = {
 
 
 def get_connection():
-    global connection
+    """
+    This method sets up a connection with the database.
 
-    if connection is None:
-        connection = mysql.connector.connect(**config)
+    :return: returns the connection object
+    """
+    global CONNECTION
 
-    return connection
+    if CONNECTION is None:
+        CONNECTION = mysql.connector.connect(**config)
+
+    return CONNECTION

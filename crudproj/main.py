@@ -1,19 +1,34 @@
-from connection_db import get_connection
-import gui_module
+"""
+This module contains the main driver code for static code analysis
+"""
 import os
+import gui_module
+from connection_db import get_connection
 
 
 # Crud: For creating data in the table
 def put_data(connection):
+    """
+    This method inserts data into the database
+
+    :param connection: connection object of DB
+    :return: None
+    """
     task_name, task_status = gui_module.take_data_to_insert()
     cursor = connection.cursor()
-    query = f"INSERT INTO checklist (task, status) VALUES(%s,%s)"
+    query = "INSERT INTO checklist (task, status) VALUES(%s,%s)"
     cursor.execute(query, (task_name, task_status))
     connection.commit()
 
 
 # cRud: For reading data from the table
 def get_data(connection):
+    """
+    This method retrieves data from the database
+
+    :param connection: connection object of DB
+    :return: None
+    """
     cursor = connection.cursor()
     query = "SELECT * FROM checklist"
     cursor.execute(query)
@@ -27,28 +42,46 @@ def get_data(connection):
 
 # cruD: For deleting data from the table
 def delete_data(connection):
-    id_to_delete = input(f"Enter id of element to delete")
+    """
+    This method deletes data from the database
+
+    :param connection: connection object of DB
+    :return: None
+    """
+    id_to_delete = input("Enter id of element to delete")
     cursor = connection.cursor()
-    query = f"DELETE FROM checklist WHERE (`task_number` = %s)"
+    query = "DELETE FROM checklist WHERE (`task_number` = %s)"
     cursor.execute(query, [id_to_delete])
+    connection.commit()
     get_data(connection)
 
 
 # crUd: For updating data of the table
 def update_table(connection):
-    user_input_id = input(f"Enter id of task")
-    user_input_status = input(f"Enter the new status")
+    """
+    This method updates values in the table
+
+    :param connection: connection object of DB
+    :return: None
+    """
+    user_input_id = input("Enter id of task")
+    user_input_status = input("Enter the new status")
     new_details = [user_input_status, user_input_id]
     cursor = connection.cursor()
-    query = (f"UPDATE checklist "
-             f"SET status = %s "
-             f"WHERE (task_number = %s)")
+    query = ("UPDATE checklist "
+             "SET status = %s "
+             "WHERE (task_number = %s)")
     cursor.execute(query, new_details)
     connection.commit()
     get_data(connection)
 
 
 def clear_screen():
+    """
+    To clear the console
+
+    :return: None
+    """
     os.system("clear")
 
 
@@ -57,12 +90,12 @@ if __name__ == '__main__':
     connection_db = get_connection()
 
     while True:
-        option = input(f"Enter what you want to do: \n"
-                       f"\t1: INSERT\n"
-                       f"\t2: SHOW TABLE\n"
-                       f"\t3: UPDATE TABLE\n"
-                       f"\t4: DELETE\n"
-                       f"\te: EXIT THE PROGRAM\n")
+        option = input("Enter what you want to do: \n"
+                       "\t1: INSERT\n"
+                       "\t2: SHOW TABLE\n"
+                       "\t3: UPDATE TABLE\n"
+                       "\t4: DELETE\n"
+                       "\te: EXIT THE PROGRAM\n")
 
         match option:
             case '1':
