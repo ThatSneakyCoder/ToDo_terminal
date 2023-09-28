@@ -14,7 +14,7 @@ jobs:
           command: pip install pylint
       - run:
           name: Run pylint
-          command: find . -name \*.py -exec pylint {} +
+          command: ./scripts/run_pylint_analysis.sh
 
 workflows:
   build_and_test:
