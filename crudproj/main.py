@@ -88,7 +88,6 @@ def clear_screen():
 if __name__ == '__main__':
     # set up the connection to the database
     connection_db = get_connection()
-
     while True:
         option = input("Enter what you want to do: \n"
                        "\t1: INSERT\n"
@@ -112,6 +111,7 @@ if __name__ == '__main__':
                 delete_data(connection_db)
             case 'e':
                 clear_screen()
+                break
             case default:
                 clear_screen()
                 print("Incorrect value entered")
