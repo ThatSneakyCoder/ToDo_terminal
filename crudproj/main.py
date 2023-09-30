@@ -112,7 +112,6 @@ if __name__ == '__main__':
                 delete_data(connection_db)
             case 'e':
                 clear_screen()
-                break
             case default:
                 clear_screen()
                 print("Incorrect value entered")

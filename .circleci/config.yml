@@ -15,8 +15,17 @@ jobs:
       - run:
           name: Run pylint
           command: ./scripts/run_pylint_analysis.sh
+  script-checker:
+    docker:
+      - image: 'python:3.10'
+    steps:
+      - checkout
+      - run:
+          name: Check file line count
+          command: ./scripts/line_checker.sh
 
 workflows:
   build_and_test:
     jobs:
       - build
+      - script-checker
